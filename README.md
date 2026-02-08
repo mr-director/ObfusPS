@@ -331,33 +331,33 @@ INPUT (.ps1)
     |
     v
 +------------+     +---------------------------------------------+
-| Read &     |     | SMART ANALYSIS (-auto / -recommend)          |
+| Read &     |     | SMART ANALYSIS (-auto / -recommend)         |
 | Validate   |     |   AnalyzeScript(): 22+ feature detectors    |
-| UTF-8      |     |   -> Complexity score (0-100)                |
+| UTF-8      |     |   -> Complexity score (0-100)               |
 +-----+------+     |   -> Recommended profile, level, flags      |
-      |             |   -> Warnings & suggestions                 |
-      v             +----------------------+----------------------+
+      |            |   -> Warnings & suggestions                 |
+      v            +-----------------------+---------------------+
 +------------+                             |  (-auto applies)
 | Seed       |                             v
 | Derive     |     +---------------------------------------------+
 +-----+------+     | PIPELINE TRANSFORMS (in order)              |
-      |             |   iden -> strenc -> stringdict -> numenc     |
-      v             |   -> fmt -> cf-opaque -> cf-shuffle -> dead |
-+------------+     +----------------------+----------------------+
+      |            |   iden -> strenc -> stringdict -> numenc    |
+      v            |   -> fmt -> cf-opaque -> cf-shuffle -> dead |
++------------+     +-----------------------+---------------------+
 | Optional   |                             |
 | -log       |                             v
 +-----+------+     +---------------------------------------------+
-      |             | PACKER (level 1-5)                          |
-      v             |   char join | Base64 | GZip | GZip+XOR+frag|
-+------------+     +----------------------+----------------------+
+      |            | PACKER (level 1-5)                          |
+      v            |   char join | Base64 | GZip | GZip+XOR+frag |
++------------+     +-----------------------+---------------------+
 | Assembly   |                             |
 | stub +     |                             v
 | signature  |     +---------------------------------------------+
 | + seed     |     | VALIDATE (-validate)                        |
 +-----+------+     |   Run original & obfuscated -> compare      |
-      |             |   stdout, stderr, exit code                 |
-      v             |   Auto-retry on failure (-auto-retry)       |
-OUTPUT (.ps1)       +---------------------------------------------+
+      |            |   stdout, stderr, exit code                 |
+      v            |   Auto-retry on failure (-auto-retry)       |
+OUTPUT (.ps1)      +---------------------------------------------+
 ```
 
 ### Cryptographic algorithms
