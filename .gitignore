@@ -1,0 +1,48 @@
+# ── Binaries ──────────────────────────────────────────────
+*.exe
+*.dll
+
+# ── Go ────────────────────────────────────────────────────
+/vendor/
+*.test
+*.out
+go.work
+go.work.sum
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.spec
+dist/
+
+# ── Build artifacts ───────────────────────────────────────
+/build/
+scripts/PSAstParser/bin/
+scripts/PSAstParser/obj/
+
+# ── Output folders (GUI) ─────────────────────────────────
+/ObfusPS/
+
+# ── Test output / temp files ──────────────────────────────
+.validate_tmp/
+t.ps1
+t_*.ps1
+t.v*.ps1
+det*.ps1
+test-combo-out*.ps1
+test-debug.log
+mega-test.log
+obfuscated.ps1
+*.log
+
+# ── IDE / OS ──────────────────────────────────────────────
+.idea/
+.vscode/
+
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
